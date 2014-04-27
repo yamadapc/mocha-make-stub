@@ -1,0 +1,31 @@
+{
+  "name": "mocha-make-stub",
+  "version": "0.0.0",
+  "description": "A simple mocha + sinon stubbing helper.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yamadapc/mocha-make-stub"
+  },
+  "keywords": [
+    "mocha",
+    "sinon",
+    "stub",
+    "test",
+    "helper"
+  ],
+  "author": "Pedro Yamada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yamadapc/mocha-make-stub/issues"
+  },
+  "dependencies": {
+    "sinon": "~1.9.1"
+  },
+  "peerDependencies": {
+    "mocha": "~1.18.2"
+  }
+}
