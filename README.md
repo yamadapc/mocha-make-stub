@@ -1,8 +1,6 @@
 mocha-make-stub
 ===============
 
-_Not published yet._
-
 A simple mocha + sinon stubbing helper.
 
 Creates `before` and `after` mocha statements to stub a `method` on a `target`
