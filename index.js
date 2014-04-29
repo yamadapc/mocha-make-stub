@@ -18,6 +18,8 @@ var sinon = require('sinon');
  *                       looked up on the mocha's context
  * @param {Mixed} method The key of the method stub - usually a String.
  * @param {Function} [fn] The stub function if any.
+ * @param {Boolean} [mocha_ctx=false] Whether to bind fn to the mocha
+ *                                    context.
  *
  * @example
  *    describe('makeRequest(host, body, cb)', function() {
@@ -31,12 +33,18 @@ var sinon = require('sinon');
  *    });
  */
 
-exports = module.exports = function makeStub(name, target, method, fn) {
+exports = module.exports = function makeStub(name, target, method, fn, mocha_ctx) {
   /* global before, after */
   before(function() {
     if((typeof target) === 'string') target = this[target];
 
-    this[name] = sinon.stub(target, method, fn && fn.bind(this));
+    this[name] = sinon.stub(
+      target,
+      method,
+      // support `fn === undefined` and either using the original or
+      // the mocha's context.
+      fn && (mocha_ctx ? fn.bind(this) : fn)
+    );
   });
 
   after(function() {
