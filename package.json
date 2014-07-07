@@ -1,6 +1,6 @@
 {
   "name": "mocha-make-stub",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simple mocha + sinon stubbing helper.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "url": "https://github.com/yamadapc/mocha-make-stub/issues"
   },
   "dependencies": {
-    "sinon": "~1.9.1"
+    "sinon": "1.*"
   }
 }
