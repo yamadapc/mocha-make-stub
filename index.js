@@ -34,6 +34,14 @@ var sinon = require('sinon');
  */
 
 exports = module.exports = function makeStub(name, target, method, fn, mocha_ctx) {
+  if(typeof method === 'function' || !method) {
+    mocha_ctx = fn;
+    fn = method;
+    method = target;
+    target = name;
+    name = method;
+  }
+
   /* global before, after */
   before(function() {
     if((typeof target) === 'string') target = this[target];

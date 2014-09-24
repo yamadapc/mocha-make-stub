@@ -4,7 +4,7 @@
   "description": "A simple mocha + sinon stubbing helper.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "sinon": "1.*"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
   }
 }
