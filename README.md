@@ -1,11 +1,19 @@
 mocha-make-stub
 ===============
+[![Build Status](https://travis-ci.org/yamadapc/mocha-make-stub.png?branch=master)](https://travis-ci.org/yamadapc/mocha-make-stub)
+[![Dependency Status](https://david-dm.org/yamadapc/mocha-make-stub.svg)](https://david-dm.org/yamadapc/mocha-make-stub)
+[![devDependency Status](https://david-dm.org/yamadapc/mocha-make-stub/dev-status.svg)](https://david-dm.org/yamadapc/mocha-make-stub#info=devDependencies)
+- - -
 
 A simple mocha + sinon stubbing helper.
 
 Creates `before` and `after` mocha statements to stub a `method` on a `target`
 before running a tests block and restore it afterwards. The stub is stored at a
 `name` field in the mocha's context object (this).
+
+If no `name` is provided, the stubbed function will be stored at the context's
+`method` property instead of name. This allows for a slightly smaller shorthand
+for simpler cases.
 
 This is simply a syntastic sugar for using sinon with mocha. See more at:
 http://sinonjs.org
@@ -14,7 +22,7 @@ http://sinonjs.org
 
 | Type         | Name                | Description                                          |
 |--------------|---------------------|------------------------------------------------------|
-| **Mixed**    | *name*              | The key under which to store the sinon stub.         |
+| **Mixed**    | *[name]*            | The key under which to store the sinon stub.         |
 | **Mixed**    | *target*            | The object to stub. If a string is provided it'll be |
 | **Mixed**    | *method*            | The key of the method stub - usually a String.       |
 | **Function** | *[fn]*              | The stub function if any.                            |
