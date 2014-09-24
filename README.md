@@ -22,11 +22,12 @@ http://sinonjs.org
 
 | Type         | Name                | Description                                          |
 |--------------|---------------------|------------------------------------------------------|
-| **Mixed**    | *[name]*            | The key under which to store the sinon stub.         |
-| **Mixed**    | *target*            | The object to stub. If a string is provided it'll be |
-| **Mixed**    | *method*            | The key of the method stub - usually a String.       |
-| **Function** | *[fn]*              | The stub function if any.                            |
-| **Boolean**  | *[mocha_ctx=false]* | Whether to bind fn to the mocha                      |
+| **Mixed**    | *[name]*            | The key under which to store the sinon stub. Defaults to the `method` value           |
+| **Mixed**    | *target*            | The object to stub. If a string is provided it'll be looked up on the mocha's context |
+| **Mixed**    | *method*            | The key of the method stub - usually a String.                                        |
+| **Function** | *[fn]*              | The stub function if any.                                                             |
+| **Boolean**  | *[mocha_ctx=false]* | Whether to bind fn to the mocha context.                                              |
+
 
 
 ## Example
