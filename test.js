@@ -39,4 +39,31 @@ describe('mocha-make-stub', function() {
       assert(obj.fn2 === originals.fn2);
     });
   });
+
+  describe('before the tests - binding to `this`', function() {
+    before(function() {
+      this.obj2 = function() {};
+      this.obj2.fn1 = function() {};
+    });
+
+    makeStub('obj2', 'fn1', function() {
+      return this.getsContext;
+    }, true);
+
+    it('stubs the functions with sinon', function() {
+      assert(this.obj2.fn1 === this.fn1, 'Function is stored in the context');
+      this.getsContext = true;
+      assert(this.obj2.fn1(), 'Function is bound to the context');
+    });
+  });
+
+  describe('after the tests', function() {
+    it('things are restored', function() {
+      assert(!this.fn1);
+      assert(!this.fn2);
+
+      assert(obj.fn1 === originals.fn1);
+      assert(obj.fn2 === originals.fn2);
+    });
+  });
 });
