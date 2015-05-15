@@ -1,4 +1,4 @@
-'use strict'; /* global describe, it */
+'use strict'; /* global describe, it, before */
 var assert = require('assert');
 var makeStub = require('./');
 
