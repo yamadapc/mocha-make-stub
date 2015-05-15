@@ -45,6 +45,7 @@ exports = module.exports = function makeStub(name, target, method, fn, mocha_ctx
     target = name;
     name = method;
   }
+  var hookExecuted = false;
 
   /* global before, after */
   before(function() {
@@ -57,11 +58,20 @@ exports = module.exports = function makeStub(name, target, method, fn, mocha_ctx
       // the mocha's context.
       fn && (mocha_ctx ? fn.bind(this) : fn)
     );
+    hookExecuted = true;
   });
 
   after(function() {
-    if((typeof target) === 'string') target = this[target];
+    if(hookExecuted) {
+      if(!this[name]) {
+        throw new Error(
+          '`mocha-make-stub`\'s `before` hook ran, but I can\'t find ' +
+          '`this.' + name + '`. Please report this bug to:\n' +
+          '  https://github.com/yamadapc/mocha-make-stub'
+        );
+      }
 
-    this[name].restore();
+      this[name].restore();
+    }
   });
 };
