@@ -49,6 +49,10 @@ describe('makeRequest(host, body, cb)', function() {
 });
 ```
 
+## `makeStub.each([name], target, method, [fn], [mocha_ctx=false])`
+
+Like `makeStub` but uses `beforeEach` and `afterEach`.
+
 ## License
 Copyright (c) 2014 Pedro Tacla Yamada. Licensed under the MIT license.
 Please refer to the [LICENSE](LICENSE) file for more info.
