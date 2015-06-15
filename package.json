@@ -1,6 +1,6 @@
 {
   "name": "mocha-make-stub",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "A simple mocha + sinon stubbing helper.",
   "main": "index.js",
   "scripts": {
