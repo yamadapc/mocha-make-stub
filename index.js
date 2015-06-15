@@ -90,10 +90,7 @@ exports.each = function(name, target, method, fn, mocha_ctx) {
 
   /* global beforeEach, afterEach */
   beforeEach(function() {
-    if(this[name] && this[name].restore) {
-      this[name].restore();
-    }
-
+    destruct(this, name);
     construct(this, name, target, method, fn, mocha_ctx);
   });
 
@@ -115,7 +112,7 @@ function construct(_this, name, target, method, fn, mocha_ctx) {
 }
 
 function destruct(_this, name) {
-  if(_this[name]) {
+  if(_this[name] && _this[name].restore) {
     _this[name].restore();
   }
 }
