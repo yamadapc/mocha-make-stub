@@ -90,6 +90,10 @@ exports.each = function(name, target, method, fn, mocha_ctx) {
 
   /* global beforeEach, afterEach */
   beforeEach(function() {
+    if(this[name] && this[name].restore) {
+      this[name].restore();
+    }
+
     construct(this, name, target, method, fn, mocha_ctx);
   });
 
