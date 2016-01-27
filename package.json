@@ -23,7 +23,7 @@
     "url": "https://github.com/yamadapc/mocha-make-stub/issues"
   },
   "dependencies": {
-    "sinon": "1.*"
+    "sinon": "1.17.3"
   },
   "devDependencies": {
     "mocha": "^1.21.4"
